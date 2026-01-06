@@ -1,0 +1,9 @@
+<!-- views/partials/sidebar.ejs -->
+<aside class="sidebar mt-1">
+    <h3>Categories</h3>
+    <ul class="list-group-item active" style="list-style-type: none;">
+        <% categories.forEach(element => { %>
+            <li><%= element.name %></li>    
+        <% }) %>
+    </ul>
+</aside>

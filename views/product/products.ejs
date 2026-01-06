@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs') %>
+<div class="container-fluid">
+    <h1 class="text text-primary text-center">Product Detail Page</h1>
+    <div class="row my-2">
+        <div class="col-sm-6">
+            <h3 class="text text-primary">Complete Detail of Product <%= pro.name %></h3>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <td><%= pro.name %></td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td><%= pro.price %></td>
+                </tr>
+            </table>
+            <a href="/" class="btn btn-success">Back</a>
+            <link rel="stylesheet" href="/js/bootstrap.js">
+        </div>
+        <div class="col-sm-6 mt-3">
+            <% if (pro.url) { %>
+                <img src="<%= pro.url %>" alt="No Image" class="img-fluid w-75 h-75 ">
+            <% } else { %>
+                <p class="text text-center text-primary ">No product Image Available</p>
+            <% } %>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer.ejs') %>
+

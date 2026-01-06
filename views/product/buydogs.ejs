@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <div class="card mx-1 my-2 p-2" style="width: 15rem; ">
+                <% if (element.url) { %>
+                    <img src="<%= element.url %>" class="img-fluid" alt=<% element.name %>>
+                <% } else { %>
+                    <div class="w-100 h-50">
+                        <p class="text text-center text-light my-1 bg-danger p-5 "> The Dog <%= element.name.toUpperCase() %>'s Image Available</p>
+                    </div>
+                <% } %>
+                <div class="card-body h-75 w-100 bg-light">
+                    <h5 class="card-title"><%= element.id %>.<i><%= element.name.toUpperCase() %></i>  </h5>
+                    <p> Breed- <i><%= element.breed %></i> </p>
+                    <p> Color- <i><%= element.color %></i> </p>
+                    <p> Weight- <i><%= element.weight %></i> </p>
+                    <a href="/dog/<%= element.id %>" class="btn btn-primary">Buy Now</a>
+                    <a href="/dog" class="btn btn-danger">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,38 @@
+<%- include('../partials/header.ejs') %>
+    <div class="container-fluid">
+        <div class="row">
+            <%- include('../partials/navbar.ejs') %>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <%- include('../partials/sidebar.ejs') %>
+            </div>
+            <div class="col-8">
+                <h3 class="text text-primary">All Product</h3>
+                <form action="" method="get">
+                    <div  class="d-flex">
+                    <input type="search" placeholder="search product by name" id="search" class="form-control w-50 mx-2" name="mobilename">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+                </form>
+                <% if (count > 0) { %>
+                    <small class="text text-primary text-center my-3 "> Total Cell Phones found - <%= count %> </small>
+                <% } else { %>
+                    <small class="text text-danger text-center my-3 mt-5 "> No Cell Phones found </small>
+                <% } %>
+                <div class="row">
+                    <% products.forEach(element => { %>
+                        <div class="card mx-1 my-2 p-2" style="width: 10rem; ">
+                            <img src="<%= element.url %>" class="img-fluid" alt=<% element.name %>>
+                            <div class="card-body h-50 w-100">
+                                <h5 class="card-title"><i><%= element.name %></i>  </h5>
+                                <p> Price- <i><%= element.price %></i> /-</p>
+                                <a href="/product/<%= element.id %>" class="btn btn-primary">Find Full Detail</a>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('../partials/footer.ejs') %>

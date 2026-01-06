@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3 class="text text-primary text-center">All The dogs Available here...</h3>
+            <form action="" method="get">
+                <div  class="d-flex text-center">
+                    <input type="search" placeholder="search yuor dog" id="search" class="form-control w-50" name="dogname">
+                    <button type="submit" class="btn btn-primary mx-2">Search</button>
+                </div>
+            </form>
+            <div class="row">
+                <% if (count > 0) { %>
+                    <small class="text text-primary text-center my-3 "> Total dogs found - <%= count %> </small>
+                <% } else { %>
+                    <small class="text text-danger text-center my-3 "> No dogs found </small>
+                <% } %>
+                
+                <% dogs.forEach(element => { %>
+                    <div class="card mx-1 my-2 p-3" style="width: 15rem; ">
+                        <% if (element.url) { %>
+                            <img src="<%= element.url %>" class="img-fluid h-75 w-100" alt=<% element.name %>>
+                        <% } else { %>
+                            <div class="w-100">
+                                <p class="text text-center text-light my-1 bg-danger p-4 "> The Dog <%= element.name.toUpperCase() %>'s Image Available</p>
+                            </div>
+                        <% } %>
+                        <div class="card-body h-75 w-100 bg-light">
+                                <h5 class="card-title"><%= element.id %>.<i><%= element.name.toUpperCase() %></i>  </h5>
+                                <p class="my-0"> Breed- <i><%= element.breed %></i> </p>
+                                <p class="my-0"> Color- <i><%= element.color %></i> </p>
+                                <p  class="mb-1"> Weight- <i><%= element.weight %></i> </p>
+                            <a href="/dog/<%= element.id %>" class="btn btn-primary">Buy Now</a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+<%- include('../partials/footer.ejs') %>
